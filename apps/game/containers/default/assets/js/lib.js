@@ -46,7 +46,7 @@ function SCORE(){
 }
 
 function PODS(){
-    this.max = 12;
+    this.max = 9;
     var podsArray = [];
     var DoNotReAdd = new Object();
 
