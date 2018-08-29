@@ -17,7 +17,6 @@ var RESET_NUMBER = 57; // it assumes the number 9 resets the pods
 $(document).keypress(function(e) {
   var key = e.keyCode
 
-
   // is it a number?
   if (key >= 48 && key <= 57) {
     if (key === RESET_NUMBER) {
@@ -26,7 +25,7 @@ $(document).keypress(function(e) {
     } else {
       var pod = key - 48
       console.log('Killing pod', pod);
-      $("#pod-" + pod).click()
+      $("#pod-" + pod + ' div:first').click()
     }
   } else {
     console.log('Key pressed is not a number =', key)
