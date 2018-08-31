@@ -12,22 +12,31 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+var GAME_INTERVAL = 300;
+var SCORE_INTERVAL = 10;
+var PODS_INTERVAL = 500;
+var CLOCK_INTERVAL = 100;
+
 var RESET_NUMBER = 57; // it assumes the number 9 resets the pods
 
+function restart(){
+    location.reload();
+}
+
 $(document).keypress(function(e) {
-  var key = e.keyCode
+  var key = e.keyCode;
 
   // is it a number?
   if (key >= 48 && key <= 57) {
     if (key === RESET_NUMBER) {
-      console.log('Restarting...')
-      $("#restart").click()
+      console.log('Restarting...');
+      $("#restart").click();
     } else {
-      var pod = key - 48
+      var pod = key - 48;
       console.log('Killing pod', pod);
-      $("#pod-" + pod + ' div:first').click()
+      $("#pod-" + pod + ' div:first').click();
     }
   } else {
-    console.log('Key pressed is not a number =', key)
+    console.log('Key pressed is not a number =', key);
   }
 });
