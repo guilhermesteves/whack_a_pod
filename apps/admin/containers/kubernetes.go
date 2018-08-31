@@ -177,6 +177,7 @@ type minimumDeployment struct {
 				Labels map[string]string `json:"labels,omitempty"`
 			} `json:"metadata,omitempty"`
 			Spec struct {
+				AutomountServiceAccountToken  bool               `json:"automountServiceAccountToken,omitempty"`
 				TerminationGracePeriodSeconds int                `json:"terminationGracePeriodSeconds,omitempty"`
 				Containers                    []minimumContainer `json:"containers,omitempty"`
 			} `json:"spec,omitempty"`
@@ -219,6 +220,7 @@ func createDeployment() ([]byte, error) {
 	d.Spec.Selector.MatchLabels = map[string]string{"app": "api"}
 	d.Spec.Strategy.Type = "RollingUpdate"
 	d.Spec.Template.Metadata.Labels = map[string]string{"app": "api"}
+	d.Spec.Template.Spec.AutomountServiceAccountToken = false
 	d.Spec.Template.Spec.TerminationGracePeriodSeconds = 1
 	d.Spec.Template.Spec.Containers = []minimumContainer{
 		minimumContainer{
@@ -274,3 +276,4 @@ func deleteDeployment(depname string) ([]byte, error) {
 	return b, nil
 
 }
+
