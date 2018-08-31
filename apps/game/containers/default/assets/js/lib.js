@@ -15,6 +15,11 @@
 var servicehost = "";
 var adminhost = "";
 
+var GAME_INTERVAL = 300;
+var SCORE_INTERVAL = 10;
+var PODS_INTERVAL = 100;
+var CLOCK_INTERVAL = 100;
+
 
 function SCORE(){
     var total = 0;
@@ -595,10 +600,10 @@ function GAME(){
     }
 
     this.Start = function(colorFunction, scoreFunction, podsFunction, clockFunction){
-        this.gameInterval = setInterval(colorFunction, 300);
-        this.scoreInterval = setInterval(scoreFunction, 10);
-        this.podsInterval = setInterval(podsFunction, 100);
-        this.clockInterval = setInterval(clockFunction, 100);
+        this.gameInterval = setInterval(colorFunction, GAME_INTERVAL);
+        this.scoreInterval = setInterval(scoreFunction, SCORE_INTERVAL);
+        this.podsInterval = setInterval(podsFunction, PODS_INTERVAL);
+        this.clockInterval = setInterval(clockFunction, CLOCK_INTERVAL);
         state = "started";
         startTime = Date.now();
     }
