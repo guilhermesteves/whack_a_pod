@@ -1,0 +1,19 @@
+/* cyrillic-ext */
+@font-face {
+    font-family: 'Alegreya Sans SC';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Alegreya Sans SC Regular'), local('AlegreyaSansSC-Regular'), url('fonts/Alegreya_Sans_SC/AlegreyaSansSC-Regular.ttf');
+}
+@font-face {
+    font-family: 'Rye';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Rye Regular'), local('Rye-Regular'), url('fonts/Rye/Rye-Regular.ttf');
+}
+@font-face {
+    font-family: 'Source Code Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Source Code Pro'), local('SourceCodePro-Regular'), url('fonts/Source_Code_Pro/SourceCodePro-Regular.ttf');
+}
