@@ -29,7 +29,7 @@ sounds.SetCountdown("assets/audio/countdown.mp3",.5);
 sounds.SetStartup("assets/audio/startup.mp3",.5);
 
 document.addEventListener('DOMContentLoaded', function() {
-    $("#start-modal").show();
+    // $("#start-modal").show();
     $(".timer").html(default_duration);
     setReport("Kubernetes service not started yet.");
     deploymentAPI.Delete();
@@ -127,6 +127,9 @@ function handlePods(e){
 
 function handlePodsError(e){
     $(".pods").html("");
+
+    moles.KnockDown();
+
     console.log("Error getting pods:", e);
 }
 
@@ -134,7 +137,7 @@ function alertYouKilledIt(){
     if (!game.IsServiceDown() && game.GetState() == "running"){
         console.log("Killed it.");
         game.SetServiceDown();
-        score.KnockDown()
+        score.KnockDown();
         $(".alert .msg").html("You knocked down the service.");
         $(".alert").show();
         setTimeout(hideAlert, 3000);
@@ -151,6 +154,7 @@ function killPod(selflink){
 }
 
 function bombClickHandler(e){
+    moles.KnockDown();
     deploymentAPI.Get(bombBlastHandler, genericError);
 }
 

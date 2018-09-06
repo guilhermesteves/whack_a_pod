@@ -32,7 +32,7 @@ sounds.SetStartup("assets/audio/startup.mp3",.5);
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    $("#start-modal").show();
+    // $("#start-modal").show();
     $(".timer").html(default_duration);
     setReport("");
     deploymentAPI.Delete();
@@ -172,6 +172,9 @@ function handlePods(e){
 
 function handlePodsError(e){
     $(".pods").html("");
+
+    moles.KnockDown();
+
     console.log("Error getting pods:", e);
 }
 
@@ -208,6 +211,7 @@ function killHandler(e){
 }
 
 function bombClickHandler(e){
+    moles.KnockDown();
     deploymentAPI.Get(bombBlastHandler, genericError);
 }
 

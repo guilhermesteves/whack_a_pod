@@ -311,6 +311,7 @@ function PODSUI(pods, logwindow){
 
         for (var i = 0; i < pods.Count(); i++){
             var pod = pods.Get(i);
+            moles.Status(i, pod);
             this.AddPod(pod,whackHandler);
             logwindow.Log(pod);
         }
